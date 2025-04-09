@@ -1,3 +1,6 @@
+# Diagrama ER - StudyBuddy
+
+```mermaid
 erDiagram
     USUARIO ||--o{ COMPROMISSO : possui
     USUARIO ||--o{ LEMBRETE : recebe
