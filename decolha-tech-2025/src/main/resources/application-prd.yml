@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PG_HOST}:${PG_PORT}/${PG_DATABASE}
+    username: ${PG_USER}
+    password: ${PG_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
