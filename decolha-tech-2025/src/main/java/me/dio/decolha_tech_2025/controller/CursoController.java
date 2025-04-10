@@ -36,8 +36,15 @@ public class CursoController {
 
 
     @GetMapping
-    public ResponseEntity<List<Curso>> findAll() {
-        return ResponseEntity.ok(cursoService.findAll());
+    public ResponseEntity<List<CursoResponse>> findAll() {
+    List<CursoResponse> response = cursoService.findAll().stream().map(curso -> {
+        CursoResponse dto = new CursoResponse();
+        dto.setId(curso.getId());
+        dto.setNome(curso.getNome());
+        dto.setDescricao(curso.getDescricao());
+        return dto;
+    }).toList();
+    return ResponseEntity.ok(response);
     }
 
     @PutMapping("/{id}")
