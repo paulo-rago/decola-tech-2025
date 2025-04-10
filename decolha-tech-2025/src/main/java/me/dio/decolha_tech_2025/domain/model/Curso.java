@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,8 @@ public class Curso {
     private String nome;
     private String descricao;
 
-    @OneToMany(mappedBy = "curso")
+    @OneToMany
     private List<Disciplina> disciplinas;
+
 }
 
